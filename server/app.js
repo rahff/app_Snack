@@ -13,13 +13,13 @@ app.use(cors({
 }));
 
 require(`./database/app1/index`);
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes/app1/index');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, './dist')));
 
 app.use("/api", indexRouter);
 

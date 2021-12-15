@@ -26,7 +26,7 @@ module.exports = {
             const data = JSON.parse(req.body.product);    
             const body ={
                 ...data,
-                image:`${req.protocol}://${req.get('host')}/app1/images/${req.file.filename}`,
+                image:`${req.protocol}://${req.get('host')}/assets/${req.file.filename}`,
                
             }
             const addProduct = await Queries.createProduct(body);

@@ -10,7 +10,7 @@ const MIMES_TYPES = {
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) =>{
-        cb(null, 'public/app1/images');
+        cb(null, 'dist/assets/');
     },
     filename: (req, file, cb)=>{
        

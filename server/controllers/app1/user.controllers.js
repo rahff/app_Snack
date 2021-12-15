@@ -14,7 +14,7 @@ module.exports = {
                 status:200,
                 message: "Votre Compte a été crée avec succes"
             })
-        }catch{
+        }catch(e){
             res.status(500).json({
                 message: "Un problème est survenu .. "
             })
