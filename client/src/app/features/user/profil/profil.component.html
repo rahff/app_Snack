@@ -1,0 +1,74 @@
+
+<h1>Votre Profil Client</h1>
+
+<div class="container">
+    <ul>
+        <li class="profil-item">
+            Nom: {{userName}} <button #butt1 class="btn success  se"
+             (click)="updateField('name',0)"> Modifier
+             <i class="bi bi-pencil-fill"></i></button>
+            <div class="updateField" *ngIf="isModif && name === 'name'">
+                <input #newName type="text" value="{{userName}}">
+                 <button (click)="submitOneField('name',0)"
+                  class="btn btn-danger">Ok</button>
+            </div>
+        </li>
+        <hr>
+        <li class="profil-item">
+            Prénom: {{userFirstname}}<button #butt2 class="btn success se"  
+            (click)="updateField('firstname', 1)"> Modifier
+            <i class="bi bi-pencil-fill"></i></button>
+            <div class="updateField" *ngIf="isModif && name === 'firstname'">
+                <input #newName type="text" value="{{userFirstname}}">
+                 <button (click)="submitOneField('firstname',1)" 
+                 class="btn btn-danger">Ok</button>
+            </div>
+        </li>
+        <hr>
+        <li class="profil-item">
+            Email: {{userEmail}}<button #butt3 class="btn success  se"
+            (click)="updateField('email', 2)"> Modifier
+            <i class="bi bi-pencil-fill"></i></button>
+            <div class="updateField" *ngIf="isModif && name === 'email'">
+                <input #newName type="text" value="{{userEmail}}"> 
+                <button (click)="submitOneField('email', 2)" class="btn btn-danger">Ok</button>
+            </div>
+        </li>
+        <hr>
+        <li class="profil-item last-child">
+            Adresse: {{userAdress}} 
+            <button #butt4 class="btn success  se"(click)="updateField('adress', 3)"> 
+                Modifier<i class="bi bi-pencil-fill"></i></button>
+            <div class="updateField last-child" *ngIf="isModif && name === 'adress'">
+                <input #newName type="text" value="{{userAdress}}"> 
+                <button (click)="submitOneField('adress', 3)" 
+                class="btn btn-danger">Ok</button>
+            </div>
+        </li>
+        <hr>
+        <li id="password" class="profil-item">
+           <div class="d-flex">Mot de passe: ******** <button #butt3 class="btn success  se"
+            (click)="updateField('password', 4)"> Modifier
+            <i class="bi bi-pencil-fill"></i></button></div> 
+            <div class="d-flex" *ngIf="isModif && name === 'password'">
+                <div class="flex-col" [formGroup]="updatePasswordForm">
+                    <label>Mot de passe</label>
+                    <input  type="password" value="" formControlName="old"> 
+                    <label>Nouveau mot de passe</label>
+                    <input  type="password" value="" formControlName="new"> 
+                    <label>Confirmer</label>
+                    <input (input)="errorPassword = false" type="password" value="" formControlName="confirm"> 
+                    <button (click)="submitOneField('password', 4)" id="updatePassword" class="btn btn-danger">Modifier le mot de passe</button>
+                </div>
+            </div>
+            <p *ngIf="errorPassword" class="error">Les mots de passe sont différents</p>
+            <p *ngIf="errorServer" class="error">{{errorServer}}</p>
+            <p *ngIf="messageSuccess" class="error"> {{messageSuccess}} </p>
+        
+        </li>
+        <hr>
+        <div class="flex-center">
+        <button routerLink="list-commande" class="btn success">Historique des commandes</button>
+    </div>
+    </ul>
+</div>

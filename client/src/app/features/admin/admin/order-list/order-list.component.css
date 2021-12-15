@@ -1,0 +1,59 @@
+@media screen and (min-width:551px) {
+    
+    .container{
+        padding: 25px;
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        margin-bottom: 15px;
+        font-size: 28px;
+        position: relative;
+    }
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+       margin-bottom: 5px;
+    }
+   .label, .detail{
+       padding: 15px;
+   }
+   .detail{
+    border: 1px solid var(--success);
+    border-radius: 20px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+   }
+   .btn-suppr{
+       position: absolute;
+       border-radius: 50%;
+       top: 1px;
+       right: 1px;
+   }
+   .btn{
+    border-radius: 50%;
+    background-color: rgb(224, 224, 224);
+   }
+   .modal{
+    width:fit-content;
+    height: fit-content;
+    padding: 40px;
+    position: fixed;
+    top:40%;
+    left: 30%;
+    height: 120px;
+    background: var(--light);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    color: var(--warning);
+    font-size: 50px;
+    margin-bottom: 45px;
+}
+.vide{
+    font-size: 35px ;
+    text-align: center;
+    padding: 30px;
+}
+}

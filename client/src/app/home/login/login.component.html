@@ -1,0 +1,36 @@
+
+<h1>Connectez-vous ou créer un compte avant de passer commande</h1>
+
+<div class="container flex-center"><button routerLink='/page-menu' class="btn success">Voir la carte</button></div>
+<div class="invisible">
+    <p class="success" *ngIf="messageSuccess"> {{messageSuccess}}</p>
+    <form class="form-group" [formGroup]="loginForm">
+        <div class="d-flex">
+            <div class="flex-col">
+               
+                <div class="container-fluid">
+                    <label for="name">Votre e-mail :</label>
+                </div>
+                <div class="container-fluid">
+                    <label for="name">Mot de passe :</label>
+                </div>
+              </div>
+              <div class="flex-col">
+                  <div class="container-fluid">
+                    <input type="email" class="form-control" formControlName="email" />
+                    <p *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched " class="error">Indiquez votre e-mail</p>
+                  </div>
+                  <div class="container-fluid">
+                    <input type="password" class="form-control" formControlName="password">
+                    <p *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched " class="error">champ requis</p>
+                  </div>
+                  </div>
+        </div>
+        <p class="error" *ngIf="messageError"> {{messageError}}</p>
+        <button (click)="onSubmit()" [disabled]="loginForm.invalid" 
+        type="button" class="btn btn success">Valider</button>
+    </form>
+    <div class="container flex-center success">
+        <p routerLink="/signup">Vous n'avez pas encore de compte ? Créer en un ici </p>
+    </div>
+</div>

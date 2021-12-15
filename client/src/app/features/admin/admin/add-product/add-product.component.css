@@ -1,0 +1,167 @@
+
+@media screen and (max-width:550px) {
+    .form-group{
+        width: 95%;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid var(--success);
+        padding: 20px 0;
+        max-width: 100%;
+        border-radius: 20px;
+        height: max-content;
+    }
+    input[type="file"]{
+        display: none;
+    }
+    .container-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
+    }
+    .img{
+        display: flex;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+    }
+    .container-form-array{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    label{
+        font-size: 22px;
+        color: var(--warning);
+    }
+    .array{
+        display: flex;
+        flex-direction: column;
+    }
+    .array input{
+        margin-top: 15px;
+    }
+    .row{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    input, textarea, select{
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        outline: none;
+        padding: 5px 15px ;
+        font-size: 20px;
+    }
+   
+    button{
+        margin-top: 22px;
+    }
+    h1{
+        color: var(--warning)
+    }
+    img{
+        width: 70px;
+        height: 70px;
+        margin-left: 15px;
+        border: 1px solid var(--success);
+        border-radius: 10px;
+    }
+    #submit{
+        font-size: 22px;
+    }
+}
+
+
+@media screen and (min-width:551px) {
+    .form-group{
+        width: 95%;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid var(--success);
+        padding: 20px 0;
+        max-width: 100%;
+        border-radius: 20px;
+        height: max-content;
+        max-width: 600px;
+    }
+    input[type="file"]{
+        display: none;
+    }
+    .container-form{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 85%;
+        flex-wrap: wrap;
+    }
+    .img{
+        display: flex;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+    }
+    .container-form-array{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    label{
+        font-size: 22px;
+        color: var(--warning);
+    }
+    .array{
+        display: flex;
+        flex-direction: column;
+    }
+    .array input{
+        margin-top: 15px;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 20px;
+        width: 40%;
+    }
+    input, textarea, select{
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        outline: none;
+        padding: 5px 15px ;
+        font-size: 20px;
+    }
+   
+    button{
+        margin-top: 22px;
+    }
+    h1{
+        color: var(--warning)
+    }
+    img{
+        width: 70px;
+        height: 70px;
+        margin-left: 15px;
+        border: 1px solid var(--success);
+        border-radius: 10px;
+    }
+    #submit{
+        font-size: 22px;
+    }
+}
+

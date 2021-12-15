@@ -1,0 +1,48 @@
+<div class="container-fluid flex-col">
+
+    <div class="card-product-item" *ngFor="let product of itemList"> 
+        <img [src]="product.image" alt="tacos" class="product">
+    <div class="title-product">
+        <h1>{{product.name}}</h1>
+        <h1>{{product.price / 100}} €</h1>
+        <div *ngIf="openModal && name === product.name" class="modal">
+            <div (click)="openerModal()" class="close-modal">
+                <i class="bi bi-x-square-fill"></i>
+            </div>
+            <ul class="ingredients-list">
+                <li class="ingredient-item" *ngFor="let ingredient of product.ingredients">
+                    {{ingredient}}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="openAddToCart && truc === product.name" class="modal">
+            <div (click)="openerAddToCart()" class="close-modal">
+                <i class="bi bi-x-square-fill"></i>
+            </div>
+            <div class="flex-col flex-center">
+            <label>Quantité</label>
+           <div class="container">
+               <div class="quantity">
+                   {{nbr}}
+               </div>
+               <div class="flex-center flex-col">
+                    <button (click)="increment()" class="success qty">+</button>
+                    <button (click)="decrement()" class="success qty">-</button>
+               </div>
+           </div>
+           </div>
+            <button (click)="addToCart(product)" class="btn success"> 
+                <i class="bi bi-star"></i> Ajouter au Panier
+            </button>
+    </div>
+        <button (click)="openerModal(product.name)" class="btn btn-warning"> 
+            <i class="bi bi-star"></i> Liste des Ingrédients 
+        </button>
+        <button (click)="openerAddToCart(product.name)" class="btn btn-warning"> 
+            <i class="bi bi-star"></i> Ajouter au Panier
+        </button>
+    
+    </div>
+    </div>
+    
+    </div>

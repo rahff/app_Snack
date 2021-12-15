@@ -1,0 +1,121 @@
+
+@media screen and (max-width:550px) {
+    .form-group{
+        width: 95%;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid var(--success);
+        padding: 20px 0;
+        max-width: 100%;
+        border-radius: 20px;
+    }
+    .container-fluid{
+        justify-content: center;
+        align-items: center;
+        color: var(--success);
+        font-size: 18px;
+        margin-bottom: 15px;
+        height: 40px;
+        display: block;
+        padding-top: 20px;
+    }
+   .flex-col{
+       align-items: center;
+       justify-content: center;
+   }
+    input, textarea{
+        margin-left: 15px;
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        outline: none;
+        width: 160px ;
+        padding: 5px 15px ;
+    }
+    button{
+        margin-top: 12px;
+        font-size: 24px;
+    }
+    h1{
+        color: var(--success);
+        padding: 0px 5px;
+    }
+    .invisible{
+        min-height: 65vh;
+        width: 100%;
+        padding: 30px 0px;
+    }
+    p.success{
+        text-align: center;
+        font-size: 30px;
+        color: var(--warning);
+    }
+    .container{
+        padding: 15px 10px;
+        border-radius: 20px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width:551px) {
+    .form-group{
+        width: 95%;
+        margin: 30px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid var(--success);
+        padding: 20px 0;
+        max-width: 100%;
+        border-radius: 20px;
+        max-width: 550px;
+    }
+    .container-fluid{
+        justify-content: center;
+        align-items: center;
+        color: var(--success);
+        font-size: 18px;
+        margin-bottom: 15px;
+        height: 40px;
+        display: block;
+        max-width: 550px;
+        margin: 15px auto;
+    }
+    input, textarea{
+        margin-left: 15px;
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        outline: none;
+        width: 160px ;
+        padding: 5px 15px ;
+    }
+    button{
+        margin-top: 12px;
+        font-size: 24px;
+    }
+    h1{
+        color: var(--success);
+        font-size: 55px;
+    }
+    .invisible{
+        height: 50vh;
+        width: 100%;
+        padding-top: 50px;
+    }
+    p.success{
+        text-align: center;
+        font-size: 30px;
+        color: var(--warning);
+    }
+    .container{
+        padding: 15px 10px;
+        border-radius: 20px;
+        font-size: 20px;
+        text-align: center;
+        max-width: 550px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,133 @@
+{
+  "configVersion": 1,
+  "timestamp": 1639560256629,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/195.js",
+        "/567.js",
+        "/688.js",
+        "/735.js",
+        "/common.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.js",
+        "/manifest.webmanifest",
+        "/polyfills.js",
+        "/runtime.js",
+        "/styles.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/Certification-Hygiène-Cuisine-1.jpg",
+        "/assets/O-Kebab.png",
+        "/assets/Sundae.jpg",
+        "/assets/assiette_adana.png",
+        "/assets/assiette_brochette_agneau.png",
+        "/assets/burger-quatro.png",
+        "/assets/burger-yellow.png",
+        "/assets/canette-min.png",
+        "/assets/canette.png",
+        "/assets/certificat2.jpg",
+        "/assets/certification1-min.jpg",
+        "/assets/certification1.jpg",
+        "/assets/certification3.jpg",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/impossible_burger_fmt.png",
+        "/assets/mur1.jpg",
+        "/assets/pideoeuf.png",
+        "/assets/sundae.png",
+        "/assets/tacos-viande-hache.png",
+        "/assets/tacos.png",
+        "/assets/tacos_home.png",
+        "/mur1.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/195.js": "667b305e683a29e9068131db1b44a8e4732006d5",
+    "/567.js": "289a6e09ec6eae863644bc08487bf72e225984ca",
+    "/688.js": "2eeb3ce1690446d25cf83665c7b0aa5f25910e4b",
+    "/735.js": "c55d4792ef78b067cc977b89b418957745033554",
+    "/assets/Certification-Hygiène-Cuisine-1.jpg": "f410814eb04df87ca38882b900789cbdec94dfb3",
+    "/assets/O-Kebab.png": "5aab58f07ffb72a7d7b2add0c6a863679620c90b",
+    "/assets/Sundae.jpg": "730b68427cdb3441b81078bd07c3de1aba7b9c6f",
+    "/assets/assiette_adana.png": "6203c37474fc44baf1982a8c87e2906ce076feca",
+    "/assets/assiette_brochette_agneau.png": "e4af52983606b40258af9452813054d55de3db66",
+    "/assets/burger-quatro.png": "3a73d5f4deb5094ecea6d4d7b023009cb24d2f5c",
+    "/assets/burger-yellow.png": "715a2dba603107bbfac30b65a1697c53d57da2cc",
+    "/assets/canette-min.png": "bf06e3349c039b5ba9f26992552c45d8e260a359",
+    "/assets/canette.png": "4b43e70cfcf193875fbf47d4d6a5fa6266072fc9",
+    "/assets/certificat2.jpg": "1b30fa6f4cb5e76464e09105a8580deb5a8cb4e9",
+    "/assets/certification1-min.jpg": "720b3adb524b945075f29a8008b117f76595904c",
+    "/assets/certification1.jpg": "3dec4885f8b829f70583d9340e840d724db5dacc",
+    "/assets/certification3.jpg": "cc1cfe4a5058ecef9ffa8a7bd73e288e2594893f",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/impossible_burger_fmt.png": "a42b24a54324780da0985e0d08edae863a2e70f0",
+    "/assets/mur1.jpg": "d3f7ae9e014f1884a95e82ce18202d08f6600612",
+    "/assets/pideoeuf.png": "8ffdc2a540ad2de629f8e551b9751bf594b3c450",
+    "/assets/sundae.png": "b828712ab04e8aff67447511b34ac2cd58beb3d1",
+    "/assets/tacos-viande-hache.png": "5edf735b8fa6003a89e40b0320bd985618963220",
+    "/assets/tacos.png": "28743076faaa9fa2d336e249d7003d58097f8bb9",
+    "/assets/tacos_home.png": "1c1d33ab2e2b849bb11f5ee61c7e60faaf6cef8f",
+    "/common.js": "8bc9a437844e63f33fb34daa0a39df1f474e7d66",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "a07aefcffa3dbf1183f05a47cb7990aa208c6c81",
+    "/main.js": "c989b2171071670600c1c55868be3f8a4cafa375",
+    "/manifest.webmanifest": "ce22f019686ab3ea2c2489db4f4f6def36de9cb1",
+    "/mur1.jpg": "d3f7ae9e014f1884a95e82ce18202d08f6600612",
+    "/polyfills.js": "974555cf6b9149428c410326a0ec7b6a2127a6fb",
+    "/runtime.js": "34b690db88a07e6fcf92db1eaba93d9323828a50",
+    "/styles.css": "5628dea3fd194ed2960453c730861e6b186e4552"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

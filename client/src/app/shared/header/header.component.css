@@ -1,0 +1,57 @@
+
+@media screen and (max-width:804px) {
+ 
+    .brand{
+        padding: 10px;
+        cursor: pointer;
+    }
+    .logo{
+        width: 80px;
+        border-radius: 50%;
+    }
+    i{
+        font-size: 40px;
+    }
+    .btn{
+        margin-left: auto;
+    }
+    .modile-nav-menu{
+        background: var(--success);
+        width: 100%;
+        position: fixed;
+        padding: 20px;
+        flex-direction: column;
+        list-style: none;
+        z-index: 1;
+    }
+    .mobile-menu-item{
+        font-size:35px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+        color: var(--warning);
+    }
+    .laptop-nav-menu{
+        display: none;
+    }
+}
+@media  screen and (min-width:805px) {
+    header{
+        justify-content: space-around;
+        padding: 20px;
+        width: calc(100% - 40px);
+    }
+    .laptop-nav-menu{
+       font-size: 35px;
+    }
+    li{
+        margin: 0 20px;
+        cursor: pointer;
+    }
+    .btn{
+        display: none;
+    }
+    .brand{
+        margin-right: 25px;
+        cursor: pointer;
+    }
+}

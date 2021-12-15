@@ -1,0 +1,182 @@
+@media screen and (max-width: 550px) {
+    
+    h1{
+        color: var(--warning);
+        margin-bottom: 30px;
+    }
+    .container{
+        padding: 20px;
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        margin: 20px auto;
+        height: fit-content;
+    }
+    ul{
+        width: 100%;
+    }
+    li{
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        font-size: 25px;
+        margin-bottom: 28px;
+        color: var(--warning);
+    }
+     li.profil-item.last-child{
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        font-size: 25px;
+        margin-bottom: 35px;
+        color: var(--warning);
+    }
+    li button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        width: fit-content;
+        height: fit-content;
+        padding: 0px 2px;
+    }
+    hr{
+        color: var(--success);
+        margin-bottom: 15px;
+    }
+    .flex-center button{
+        font-size: 20px;
+    }
+    .updateField{
+        position: absolute;
+        width:100%;
+        bottom: -27px;
+        display: flex;
+    }
+    .updateField.last-child{
+        position: absolute;
+        width:100%;
+        bottom: -35px;
+        display: flex;
+    }
+    .updateField button{
+        margin-left: 8px;
+        padding: 0 5px;
+        font-size: 18px;
+    }
+    .updateField input{
+        border: 1px solid var(--success);
+        padding: 5px 10px;
+        border-radius: 20px;
+        color: var(--warning);
+    }
+    .d-flex{
+        width: 100%;
+    }
+    .d-flex button{
+        margin-left: auto;
+    }
+    #password{
+        flex-direction: column;
+    }
+    #password input{
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        padding: 5px 15px ;
+        margin-bottom: 5px;
+    }
+    #updatePassword{
+        width: 160px;
+    }
+}
+@media screen and (min-width: 551px) {
+    
+    h1{
+        color: var(--warning);
+        margin-bottom: 30px;
+        font-size: 50px;
+    }
+    .container{
+        padding: 20px;
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        margin: 20px auto;
+        height: fit-content;
+        max-width: 550px;
+    }
+    ul{
+        width: 100%;
+    }
+    li{
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        font-size: 25px;
+        margin-bottom: 28px;
+        color: var(--warning);
+    }
+     li.profil-item.last-child{
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        font-size: 25px;
+        margin-bottom: 35px;
+        color: var(--warning);
+    }
+    li button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        width: fit-content;
+        height: fit-content;
+        padding: 0px 2px;
+    }
+    hr{
+        color: var(--success);
+        margin-bottom: 15px;
+    }
+    .flex-center button{
+        font-size: 20px;
+    }
+    .updateField{
+        position: absolute;
+        width:100%;
+        bottom: -27px;
+        display: flex;
+    }
+    .updateField.last-child{
+        position: absolute;
+        width:100%;
+        bottom: -35px;
+        display: flex;
+    }
+    .updateField button{
+        margin-left: 8px;
+        padding: 0 5px;
+        font-size: 18px;
+    }
+    .updateField input{
+        border: 1px solid var(--success);
+        padding: 5px 10px;
+        border-radius: 20px;
+        color: var(--warning);
+    }
+    .d-flex{
+        width: 100%;
+    }
+    .d-flex button{
+        margin-left: auto;
+    }
+    #password{
+        flex-direction: column;
+    }
+    #password input{
+        border: 1px solid var(--success);
+        border-radius: 20px;
+        padding: 5px 15px ;
+        margin-bottom: 5px;
+    }
+    #updatePassword{
+        width: 160px;
+    }
+}

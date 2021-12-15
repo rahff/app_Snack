@@ -1,0 +1,32 @@
+
+<h1>Liste des commandes</h1>
+<div *ngIf="!orderList" class="vide">
+    Il n'y a aucune nouvelle commande
+</div>
+<div class="container" *ngFor="let order of orderList">
+    <div class="btn-suppr"><button (click)="deleteOrder(order._id)" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="var(--danger)" class="bi bi-x-lg" viewBox="0 0 16 16">
+        <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+      </svg></button></div>
+    <div class="flex-col">
+    <div class="row">
+        <div class="label">Détail commande :</div>
+        <div class="detail" *ngFor="let item of order.detail">{{item.quantity}} {{item.product}}</div>
+    </div>
+        <div class="row">
+            <div class="label">Adress livraison :</div>
+            <div class="detail">{{order.adressLivraison}}</div>
+        </div>
+        <div class="row">
+            <div class="label">Contact client :</div>
+            <div class="detail"> {{order.clientName}} : {{order.contactClient}}</div>
+        </div>
+        <div class="row">
+            <div class="label">Montant :</div>
+            <div class="detail">{{order.montant}} €</div>
+        </div>
+    </div>
+    <div *ngIf="message" class="modal">
+        <p>{{message}}</p>
+        <button (click)="message=null" class="btn success">Ok</button>
+    </div>
+</div>

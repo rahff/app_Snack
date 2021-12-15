@@ -1,0 +1,55 @@
+<h1>Créer un Compte</h1>
+<p class="success" *ngIf="messageSuccess"> {{messageSuccess}}</p>
+<form class="form-group" [formGroup]="signupForm">
+    <div class="d-flex">
+        <div class="flex-col">
+            <div class="container-fluid">
+                <label>Votre Nom :</label>
+            </div>
+            <div class="container-fluid">
+                <label>Votre Prénom :</label>
+            </div>
+            <div class="container-fluid">
+                <label>Votre e-mail :</label>
+            </div>
+            <div class="container-fluid">
+                <label>Adresse :</label>
+            </div>
+            <div class="container-fluid">
+                <label>Mot de passe:</label>
+            </div>
+            <div class="container-fluid">
+                <label>Confirmation:</label>
+            </div>
+          </div>
+          <div class="flex-col">
+              <div class="container-fluid">
+                <input type="text" class="form-control" formControlName="name" />
+                <p *ngIf="name.invalid && name.touched" class="error">Champ requis</p>
+              </div>
+              <div class="container-fluid">
+                <input type="text" class="form-control" formControlName="firstname" />
+                <p *ngIf="firstname.invalid && firstname.touched" class="error">Champ requis</p>
+              </div>
+              <div class="container-fluid">
+                <input type="email" class="form-control" formControlName="email" />
+                <p *ngIf="email.invalid && email.touched" class="error">Champ requis</p>
+              </div>
+              <div class="container-fluid">
+                <input type="text" class="form-control" formControlName="adress" />
+              </div>
+              <div class="container-fluid">
+                <input type="password" class="form-control" formControlName="password">
+                <p *ngIf="password.invalid && password.touched" class="error">Champ requis</p>
+              </div>
+              <div class="container-fluid">
+                <input type="password" (input)="!noMatchedPassword" class="form-control" formControlName="confirm">
+                <p *ngIf="confirm.invalid && confirm.touched" class="error">minimum 6 caractères</p>
+              </div>
+          </div>
+    </div>
+    <button (click)="onSubmit()" type="button" class="btn btn success">Valider</button>
+    <p *ngIf="noValidForm" class="error">Veuillez renseigner tous les champs svp</p>
+    <p *ngIf="noMatchedPassword" class="error">Les mots de passe ne correspondent pas</p>
+    <p *ngIf="errorServer" class="error">{{errorServer}} </p>
+  </form>

@@ -1,0 +1,29 @@
+<div class="container">
+    <button id="add" routerLink="/admin/ajouter" class="btn success">Ajouter un nouveau Produit</button>
+    <button id="list" routerLink="/admin/order-list" class="btn success">Liste des commandes</button>
+</div>
+<p class="success container" *ngIf="message"> {{message}} </p>
+<p class="error container" *ngIf="messageError"> {{messageError}} </p>
+<div class="container-fluid">
+     <!-- modal -->
+<div *ngIf="modal" class="modal">
+    <div class="container-modal flex-col ">
+        <h3>Etes vous sûr de vouloir supprimer ce produit ?</h3>
+        <button (click)="deleteProduct();closeModal()" class="btn btn-danger">Supprimer</button>
+        <button (click)="closeModal()" class="btn success">Annuler</button>
+    </div>
+</div>
+
+<!-- endModal -->
+    <!-- ngFor -->
+<div class="flex-col container">
+    <div class="d-flex" *ngFor="let product of products | async">
+<div class="product-name"> {{product.name}} : {{product.price /100}} €</div>
+    <div>
+        <button (click)="openModal(product._id)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+        <button [routerLink]="['/admin/modifier', product._id]" class="btn success"><i class="bi bi-pencil-fill"></i></button>
+    </div>
+</div>
+<!-- endFor -->
+</div>
+</div>

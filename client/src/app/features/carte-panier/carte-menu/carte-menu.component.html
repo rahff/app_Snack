@@ -1,0 +1,23 @@
+
+<header>
+    <div class="container-fluid">
+        <div class="panier" routerLink="/page-menu/panier">
+            Panier
+        <i routerLink="/page-menu/panier" class="bi bi-bag"> <div *ngIf="nbrOfItem" class="icon-panier"> {{nbrOfItem}} </div></i>
+        </div>
+    </div>
+    <div class="menu">
+        <ul class="d-flex">
+            <li [routerLink]="['/page-menu/carte',1]" (click)="changeProductList(1)" routerLinkActive="active" class="nav-carte-item ">Tacos</li>
+            <li [routerLink]="['/page-menu/carte',2]" (click)="changeProductList(2)" routerLinkActive="active" class="nav-carte-item">Kebabs</li>
+            <li [routerLink]="['/page-menu/carte',3]" (click)="changeProductList(3)" routerLinkActive="active" class="nav-carte-item">Burgers</li>
+        </ul>
+        <ul class="d-flex">
+            <li [routerLink]="['/page-menu/carte',4]" (click)="changeProductList(4)" routerLinkActive="active" class="nav-carte-item">Boissons</li>
+            <li [routerLink]="['/page-menu/carte',5]" (click)="changeProductList(5)" routerLinkActive="active" class="nav-carte-item">Dessert</li>
+            <li [routerLink]="['/page-menu/carte',6]" (click)="changeProductList(6)" routerLinkActive="active" class="nav-carte-item">Plats</li>
+        </ul>
+    </div>
+</header>
+
+<app-carte [productList]="itemList"></app-carte>

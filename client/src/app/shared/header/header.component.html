@@ -1,0 +1,29 @@
+<header class="success w-100 d-flex">
+<span class="brand"><img src="../../assets/tacos.png" 
+       alt="logo_tacos" class="logo" routerLink="/"></span>
+       <button (click)="toggleMenu($event)" class="btn success"><i class="bi bi-list"></i></button>
+       <!-- List laptop -->
+<div class="laptop-nav-menu flex-center">
+    <ul class="d-flex">
+        <li *ngIf="!isAuth" routerLink="login" class="mobile-menu-item">Se connecter</li>
+        <li *ngIf="!isAuth" routerLink="signup" class="mobile-menu-item">Créer un compte</li>
+        <li *ngIf="isAuth" (click)="logout()" routerLink="/" class="mobile-menu-item">Se déconnecter</li>
+        <li *ngIf="isAuth" routerLink="/profil" class="mobile-menu-item">Mon profil</li>
+        <li routerLink="/contact" class="mobile-menu-item">Nous contacter</li>
+        <li routerLink="/certification" class="mobile-menu-item">Certifications</li>
+        <li  routerLink="/page-menu/panier" class="mobile-menu-item">Votre  Panier</li>
+        
+    </ul>
+</div>
+</header>
+<div [@menu-mobile]="state" class="modile-nav-menu flex-center">
+    <ul [@list]="state2">
+        <li *ngIf="!isAuth" (click)="toggleMenu($event)" routerLink="login" class="mobile-menu-item">Se connecter</li>
+        <li *ngIf="!isAuth" (click)="toggleMenu($event)" routerLink="signup" class="mobile-menu-item">Créer un compte</li>
+        <li *ngIf="isAuth" (click)="toggleMenu($event);logout()" routerLink="/" class="mobile-menu-item">Se déconnecter</li>
+        <li *ngIf="isAuth" (click)="toggleMenu($event)" routerLink="/profil" class="mobile-menu-item">Mon profil</li>
+        <li (click)="toggleMenu($event)" routerLink="contact" class="mobile-menu-item">Nous contacter</li>
+        <li (click)="toggleMenu($event)" routerLink="certification" class="mobile-menu-item">Certifications</li>
+        <li  routerLink="/page-menu/panier" class="mobile-menu-item">Votre  Panier</li>
+    </ul>
+</div>

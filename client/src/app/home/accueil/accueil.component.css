@@ -1,0 +1,127 @@
+@media screen and (max-width: 550px) {
+  img {
+    width: 45%;
+    height: 150px;
+    border-radius: 20px;
+    margin-right: 2px;
+    border: 1px solid var(--success);
+  }
+  .container {
+    margin-top: 50px;
+    background: var(--light);
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .minicarte {
+    width: 33%;
+    height: 100px;
+    border: 1px solid var(--success);
+    margin-left: 1px;
+  }
+  .container-fluid {
+    position: relative;
+    justify-content: space-between;
+    color: var(--success);
+    font-size: 30px;
+  }
+  i {
+    font-size: 40px;
+    color: var(--success);
+    margin-right: 10px;
+    position: relative;
+  }
+  i::before {
+    margin-top: 2px;
+  }
+  .panier {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+  }
+  .profil {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  .profil span {
+    font-size: 24px;
+    color: var(--success);
+  }
+  .d-flex{
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 550px) {
+  .mb-3 {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  img {
+    width: 54%;
+    height: 250px;
+    border-radius: 20px;
+    margin-right: 2px;
+    border: 1px solid var(--success);
+    cursor: pointer;
+  }
+  .minicarte {
+    width: 32%;
+    height: 150px;
+    border: 1px solid var(--success);
+    margin-left: 1px;
+  }
+  .container {
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+  .app-carousel {
+    margin-bottom: 50px;
+  }
+  .profil {
+    position: absolute;
+    top: 2px;
+    left: 0%;
+    width: 100%;
+  }
+  .profil span {
+    font-size: 44px;
+    color: var(--success);
+  }
+  .container-fluid {
+    position: relative;
+    justify-content: space-between;
+    margin-bottom:50px;
+    max-width: 750px;
+    color: var(--success);
+    font-size: 30px;
+  }
+  .d-flex{
+    justify-content: center;
+  }
+  .panier {
+    position: absolute;
+    top: 2px;
+    right: 0px;
+    cursor: pointer;
+  }
+  i {
+    font-size: 50px;
+    color: var(--success);
+    cursor: pointer;
+    position: relative;
+  }
+  .icon-panier{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+}

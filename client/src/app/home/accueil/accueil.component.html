@@ -1,0 +1,27 @@
+<div class="mb-3">
+    <div class="container-fluid">
+       <div routerLink="/profil" class="profil" *ngIf="isAuth">
+        <i class="bi bi-file-person"></i> <span>{{ userName }}</span>
+     </div> <div class="panier" routerLink="/page-menu/panier">Panier <i routerLink="/page-menu/panier" class="bi bi-bag">
+         <div *ngIf="nbrOfItem" class="icon-panier"> {{nbrOfItem}} </div></i>
+        </div> 
+    </div>
+    <app-carousel></app-carousel>
+    <div routerLink="/page-menu/carte/6" class="container flex-col">
+        <div class="d-flex">
+        <img class="minicarte" src="../../../assets/assiette_brochette_agneau.png" alt="assiette_brochette_agneau">
+        <img class="minicarte" src="../../../assets/assiette_adana.png" alt="assiette_adana">
+        <img class="minicarte" src="../../../assets/pideoeuf.png" alt="pideoeuf">
+    </div>
+    <div routerLink="/page-menu/carte/6" class="description">Nos Plats</div>
+    </div>
+    <div class="container flex-col">
+        <div class="d-flex">
+            <img [routerLink]="['/page-menu/carte',4]" 
+            class="carte" src="../../../assets/canette-min.png" alt="boissons">
+            <img [routerLink]="['/page-menu/carte',5]"
+            class="carte" src="../../../assets/sundae.png" alt="desserts">
+        </div>
+        <div routerLink='/page-menu/carte/4' class="description">Dessert/Boissons</div>
+    </div>
+</div>

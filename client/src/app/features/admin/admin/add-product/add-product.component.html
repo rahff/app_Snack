@@ -1,0 +1,76 @@
+<hr class="success" />
+<h1>{{ title }}</h1>
+
+<form class="form-group" [formGroup]="addProductForm">
+  <div class="container-form">
+  <div class="row">
+    <label for="name">Image :</label>
+    <div class="img">
+    <button (click)="filePicker.click()" class="btn success mt-0">
+      <i class="bi bi-image-fill"></i>
+    </button>
+    <img *ngIf="imagePreview" [src]="imagePreview" alt="" />
+  </div>
+    <input
+      #filePicker
+      (change)="onImagePick($event)"
+      type="file"
+      class="form-control"
+      formControlName="image"
+    />
+  </div>
+  <p class="error" *ngIf="notValidInput">Ce champs est requis</p>
+
+  <div class="row">
+    <label for="name">Nom du produt :</label>
+    <input type="text" class="form-control" formControlName="name" />
+  </div>
+  <p class="error" *ngIf="name.invalid && price.touched">Ce champs est requis</p>
+  <div class="row">
+    <label for="name">Prix :</label>
+    <input type="number" class="form-control" formControlName="price" />
+  </div>
+  <p class="error" *ngIf="price.invalid && price.touched">
+    Ce champs est requis
+  </p>
+<div class="row">
+  <label for="name">Category :</label>
+  <select formControlName="category">
+    <option value="1">Tacos</option>
+    <option value="2">Kebab</option>
+    <option value="3">Burger</option>
+    <option value="4">Boisson</option>
+    <option value="5">Dessert</option>
+    <option value="6">Plat</option>
+  </select>
+</div>
+  </div>
+<hr class="success">
+<div class="container-form-array">
+  <label for="name">liste des ingrdients</label>
+  <div class="array" formArrayName="list">
+    <button (click)="addIngredient()" class="btn success">
+      Ajouter un ingrédient
+    </button>
+    <input
+      type="text"
+      class="form-control form-array"
+      *ngFor="let ingredient of ingredients.controls; let i = index"
+      [formControlName]="i"
+    />
+  </div>
+
+</div>
+  <p class="error" *ngIf="notValidInput">
+    Veuillez remplir tous les champs du formulaire
+  </p>
+
+  <button
+    id="submit"
+    (click)="onSubmit()"
+    type="button"
+    class="btn btn success"
+  >
+    {{ submitInnerText }}
+  </button>
+</form>

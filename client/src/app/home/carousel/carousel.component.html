@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Bienvenu chez Taco</h1>
+    <div class="carousel-content">
+    <img #img1 [routerLink]="['/page-menu/carte',2]"  src="../../../assets/O-Kebab.png" alt="kebab" class="carousel active">
+    <img #img2 [routerLink]="['/page-menu/carte',1]" src="../../../assets/tacos_home.png" alt="tacos" class="carousel">
+    <img #img3 [routerLink]="['/page-menu/carte',3]" src="../../../assets/impossible_burger_fmt.png" alt="hamburger" class="carousel">
+    </div>
+     <i (click)="slideLeft()" id="gauche" class="bi bi-caret-left"></i>
+     <i (click)="slideRight()" id="droite" class="bi bi-caret-right"></i>
+     <div routerLink="/page-menu/{{param}}" class="description">{{description}}</div>
+</div>

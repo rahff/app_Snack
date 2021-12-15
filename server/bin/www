@@ -1,0 +1,15 @@
+const http = require('http');
+const https = require('https')
+const app = require('../app');
+const path = require('path');
+const env = require(`../env/${process.env.NODE_ENV}`)
+const fs = require('fs');
+
+http.createServer((req, res)=>{
+    res.writeHead(301, { location: `https://${env.client.split(":")[0]}` + `:${env.PORTHTTPS}` + `${req.url}`});
+    res.end()
+}).listen(env.PORTHTTP);
+https.createServer({
+    key: fs.readFileSync(env.key),
+    cert: fs.readFileSync(env.cert),
+}, app).listen(env.PORTHTTPS)
