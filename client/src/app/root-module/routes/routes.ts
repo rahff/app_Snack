@@ -6,6 +6,9 @@ export const ROUTES: Routes = [
     path: '' , loadChildren: ()=> import('../../home/home.module').then(m => m.HomeModule)
   },
   {
+    path: 'confirm' , loadChildren: ()=> import('../../home/home.module').then(m => m.HomeModule)
+  },
+  {
     path: 'profil', loadChildren: ()=> import('../../features/user/user.module')
     .then(m => m.UserModule)
   },

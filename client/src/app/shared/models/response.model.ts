@@ -1,3 +1,5 @@
+
+
 export interface Response {
   status: number;
   result?: any;
@@ -5,4 +7,5 @@ export interface Response {
   token?: string;
   message?: string;
   verif?: boolean; 
+  user?: any
 }

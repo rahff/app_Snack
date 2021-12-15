@@ -18,11 +18,10 @@ export class ListCommandeUserComponent implements OnInit, OnDestroy {
   private subscription: Subscription;;
   public commandes:{detail:any,date: Date, montant: number, numeroCommande: string}[] = [];
   ngOnInit(): void {
-   this.subscription =  this.userService.getCurrentUser().subscribe((userInfos: any) => {
-      console.log(userInfos);
-      this.commandes = userInfos.commandes
+   this.subscription = this.userService.currentUser$.subscribe((userInfos: any) => {
+     this.commandes = userInfos.commandes
+     console.log("commandes",userInfos.commandes);
     });
-    console.log(this.commandes);
   }
   refreshCommande(index: number): void {
     this.cartService.refreshCommande(this.commandes[index].detail);

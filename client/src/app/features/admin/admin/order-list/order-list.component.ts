@@ -12,25 +12,14 @@ import { OrderService } from 'src/app/shared/services/order.service';
 export class OrderListComponent implements OnInit, OnDestroy {
 
   public message: string;
-  public subscription: Subscription
+  public subscription: Subscription = new Subscription()
   orderList: Order[];
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    if(!this.orderList){
-   this.orderService.getOrderList()
-    .then((response: Response) =>{
-      this.orderList = response.result;
-      console.log('onGetOrder : ' , this.orderList);
-      
-    }).catch((response: Response) =>{
-      this.message = response.message;
-    })
-  }
-    this.subscription = this.orderService.orderList$.subscribe((orders: Order[]) =>{
-      this.orderList = orders;
-      console.log("AfterEmit : " , this.orderList);
-    })
+   this.subscription.add(this.orderService.getOrderList().subscribe((list: any)=>{
+     this.orderList = list
+   }))
   }
   deleteOrder(id: string): void {
     this.orderService.deleteOrder(id)

@@ -111,7 +111,6 @@ export class PaypalComponent implements OnInit {
           const order = {detail: this.detail, user: this.userInfos, montant: +price, numero: numeroCommande, date: new Date()};
           this.orderService.createOrder(order).then((ok: boolean) => {
             console.log(("inthen createOrder"));
-            
               this.cartService.reinitCart();
               this.router.navigate(['/page-menu/commande-success']);
           }).catch((err) => {

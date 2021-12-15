@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1639562121258,
+  "timestamp": 1639592769568,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,6 +13,7 @@
       "urls": [
         "/195.js",
         "/567.js",
+        "/585.js",
         "/688.js",
         "/735.js",
         "/common.js",
@@ -20,9 +21,12 @@
         "/index.html",
         "/main.js",
         "/manifest.webmanifest",
+        "/ngsw-worker.js",
         "/polyfills.js",
         "/runtime.js",
-        "/styles.css"
+        "/safety-worker.js",
+        "/styles.css",
+        "/worker-basic.min.js"
       ],
       "patterns": []
     },
@@ -34,6 +38,7 @@
         "ignoreVary": true
       },
       "urls": [
+        "/assets/86489.png",
         "/assets/Certification-Hygiène-Cuisine-1.jpg",
         "/assets/O-Kebab.png",
         "/assets/Sundae.jpg",
@@ -69,10 +74,12 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/195.js": "667b305e683a29e9068131db1b44a8e4732006d5",
-    "/567.js": "289a6e09ec6eae863644bc08487bf72e225984ca",
-    "/688.js": "2eeb3ce1690446d25cf83665c7b0aa5f25910e4b",
-    "/735.js": "c55d4792ef78b067cc977b89b418957745033554",
+    "/195.js": "0dbd6486bfacd8bdf71eb1d007e8c54dfcf19690",
+    "/567.js": "8348d4088bb186abb34af82ddd910e49617f1456",
+    "/585.js": "a68a1eeab8e2f23433c66e35ac22df52b88e9df0",
+    "/688.js": "42ce34861c3f00ea5a880dc44ba7cc74b4491167",
+    "/735.js": "505a0406360544c3cd0849f4a5cf3e9308a37132",
+    "/assets/86489.png": "ab8a301ade62aca1f7e9916653c95dcc9a5a466e",
     "/assets/Certification-Hygiène-Cuisine-1.jpg": "f410814eb04df87ca38882b900789cbdec94dfb3",
     "/assets/O-Kebab.png": "5aab58f07ffb72a7d7b2add0c6a863679620c90b",
     "/assets/Sundae.jpg": "730b68427cdb3441b81078bd07c3de1aba7b9c6f",
@@ -101,15 +108,18 @@
     "/assets/tacos-viande-hache.png": "5edf735b8fa6003a89e40b0320bd985618963220",
     "/assets/tacos.png": "28743076faaa9fa2d336e249d7003d58097f8bb9",
     "/assets/tacos_home.png": "1c1d33ab2e2b849bb11f5ee61c7e60faaf6cef8f",
-    "/common.js": "8bc9a437844e63f33fb34daa0a39df1f474e7d66",
+    "/common.js": "c655d542052a9b3f23f089a7715f2647a04b9f09",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "/index.html": "a07aefcffa3dbf1183f05a47cb7990aa208c6c81",
-    "/main.js": "4fe4d2e9b0a2a96d194caed30bdbf40525fb441a",
+    "/main.js": "e86c756edd40dcae4cfcaf3c9254b8de7cd92b09",
     "/manifest.webmanifest": "ce22f019686ab3ea2c2489db4f4f6def36de9cb1",
     "/mur1.jpg": "d3f7ae9e014f1884a95e82ce18202d08f6600612",
+    "/ngsw-worker.js": "b44316be1c1338e9e8bd30ee40946085916c58e4",
     "/polyfills.js": "974555cf6b9149428c410326a0ec7b6a2127a6fb",
-    "/runtime.js": "34b690db88a07e6fcf92db1eaba93d9323828a50",
-    "/styles.css": "5628dea3fd194ed2960453c730861e6b186e4552"
+    "/runtime.js": "8ed624783d055f0115d90ae6842a26a01ff15a2c",
+    "/safety-worker.js": "f532926317210be6e2679d21748dc44a35389807",
+    "/styles.css": "5628dea3fd194ed2960453c730861e6b186e4552",
+    "/worker-basic.min.js": "f532926317210be6e2679d21748dc44a35389807"
   },
   "navigationUrls": [
     {

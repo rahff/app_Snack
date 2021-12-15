@@ -19,8 +19,10 @@ router.post('/update/email/:id',auth.isLogin,userController.updateEmailField);
 
 router.post('/update/adress/:id',auth.isLogin,userController.updateAdressField);
 
-router.post('/update/password/:id',auth.isLogin,userController.updatePasswordField);
+router.post('/update/password/:id',auth.isLogin, userController.updatePasswordField);
 
 router.get('/verif-token',auth.isLogin,userController.verifToken);
+
+router.get('/confirm/:id',userController.confirmAccount);
 
 module.exports = router;

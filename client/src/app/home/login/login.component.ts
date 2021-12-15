@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { User } from 'src/app/shared/models/user';
+import { AlertService } from 'src/app/shared/services/alert.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 
@@ -10,24 +12,22 @@ import { UserService } from 'src/app/shared/services/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
-  public messageError: string;
-  public messageSuccess: string;
   public localEmail: string;
   private subcription: Subscription;
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
-    this.subcription = this.userService.currentUser$.subscribe((userInfo: any) =>{
-      if (userInfo){
-        this.localEmail = userInfo.local.email;
-      }
-    })
+    const localUser = JSON.parse(localStorage.getItem('user'))
+    if(localUser){
+      this.localEmail = localUser.email
+    }
     this.initForm();
   }
   initForm(): void {
@@ -46,20 +46,16 @@ export class LoginComponent implements OnInit, OnDestroy {
         .login(body)
         .then((response: boolean) => {
           if (response) {
-            this.messageSuccess = 'Bienvenue, vous êtes connecté';
-            setTimeout(() => {
+            this.alertService.makeSimpleAlert('Bienvenue, vous êtes connecté', "success", 1800).then((res: any)=>{
               this.router.navigate(['/']);
-            }, 1800);
+            });
           }
         })
         .catch((message: string) => {
-          this.messageError = message;
+          this.alertService.makeSimpleAlert(message, "error", 1800)
           this.initForm();
         });
       this.loginForm.reset();
     }
-  }
-  ngOnDestroy(): void {
-    this.subcription.unsubscribe();
   }
 }

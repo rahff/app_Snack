@@ -5,5 +5,8 @@ export interface User {
     adress?: string;
     password?: string;
     role?: number;
+    confirm: boolean;
+    _id?: string;
+    commandes?: any[]
 }
 

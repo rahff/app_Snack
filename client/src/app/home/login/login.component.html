@@ -3,7 +3,6 @@
 
 <div class="container flex-center"><button routerLink='/page-menu' class="btn success">Voir la carte</button></div>
 <div class="invisible">
-    <p class="success" *ngIf="messageSuccess"> {{messageSuccess}}</p>
     <form class="form-group" [formGroup]="loginForm">
         <div class="d-flex">
             <div class="flex-col">
@@ -26,7 +25,6 @@
                   </div>
                   </div>
         </div>
-        <p class="error" *ngIf="messageError"> {{messageError}}</p>
         <button (click)="onSubmit()" [disabled]="loginForm.invalid" 
         type="button" class="btn btn success">Valider</button>
     </form>

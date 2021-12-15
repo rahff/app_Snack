@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject, Subscription, timer } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { JwtToken } from '../models/jwt-token';
 import { Response } from '../models/response.model';
@@ -14,57 +14,37 @@ export class UserService {
 
   private api = environment.API;
   public subscription: Subscription = new Subscription();
-  public currentUser$:BehaviorSubject<any> = new BehaviorSubject(null);
+  public currentUser$:BehaviorSubject<User> = new BehaviorSubject(null);
   public jwtToken$: BehaviorSubject<JwtToken> = new BehaviorSubject({token: null, isAuth: null});
   constructor(private http: HttpClient) {
-    this.initToken();
-    this.subscription.add(this.initTimer().subscribe(()=>{},(err)=>{
-      this.jwtToken$.next({
-        isAuth: false,
-        token: null
-      });
-      localStorage.removeItem('token');
-      this.subscription.unsubscribe();
-      console.log('unsubscribe timer');
-    }))
-    this.subscription.add(this.getCurrentUser().subscribe());
-  }
-  initToken(): void {
-    const token = localStorage.getItem('token');
-    if (token){
-      this.jwtToken$.next({
-        token: token,
-        isAuth: true
-      })
-    }
-  }
-  initTimer(){
-    return timer(2000, 1000*60*5).pipe(
-      switchMap(()=>{
-        if(localStorage.getItem('token')){
-          return this.http.get<Response>(this.api + 'users/verif-token').pipe(
-            tap((response: Response) =>{
-            if(response.status === 200){
-              this.jwtToken$.next({
-                token: response.token,
-                isAuth: true
-              })
-              localStorage.setItem('token', response.token);
-            }else{
-              this.jwtToken$.next({
-                token: null,
-                isAuth:false
-              })
-              localStorage.removeItem('token');
-              this.subscription.unsubscribe();
-            }
-            })
-          )
+       this.subscription = this.http.get<Response>(this.api + `users/verif-token`).subscribe((response)=>{
+        if(response.status === 200){
+          this.jwtToken$.next({
+            token: response.token,
+            isAuth: true
+          })
+          const user: User = {
+            email: response.user.local.email,
+            name: response.user.name,
+            adress: response.user.adress,
+            firstname: response.user.firstname,
+            role: response.user.role,
+            confirm: response.user.confirm,
+            _id:  response.user._id,
+            commandes: response.user.commandes 
+          }
+          this.currentUser$.next(user)
+          localStorage.setItem('token', response.token);
+          this.subscription.unsubscribe();
         }else{
-          return of(null);
+          this.jwtToken$.next({
+            token: null,
+            isAuth:false
+          })
+          localStorage.removeItem('token');
+          this.subscription.unsubscribe();
         }
       })
-    )
   }
   signup(body: User): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -72,7 +52,9 @@ export class UserService {
         (response: Response) => {
           if (response.status === 200) {
             const bodyLogin = { email: body.email, password: body.password };
-            this.login(bodyLogin);
+            this.login(bodyLogin).then((res)=>{
+              console.log('isLoggedIn');
+            });
             resolve(response.message);
           } else {
             reject(response.message);
@@ -93,17 +75,21 @@ export class UserService {
              token: response.token,
              isAuth: true
            })
+           if(response.user){
+             const user: User = {
+               email: response.user.local.email,
+               name: response.user.name,
+               adress: response.user.adress,
+               firstname: response.user.firstname,
+               role: response.user.role,
+               confirm: response.user.confirm,
+               _id:  response.user._id,
+               commandes: response.user.commandes 
+             }
+             this.currentUser$.next(user);
+             localStorage.setItem('user', JSON.stringify(user));
+           }
            localStorage.setItem('token', response.token);
-           this.initTimer().subscribe(()=>{},(err)=>{
-            this.jwtToken$.next({
-              isAuth: false,
-              token: null
-            });
-            localStorage.removeItem('token');
-            this.subscription.unsubscribe();
-            console.log('unsubscribe timer');
-            
-          })
             resolve(true);
           } else if (response.status === 404) {
             console.log('resolve 404');
@@ -118,6 +104,17 @@ export class UserService {
         }
       );
     });
+  }
+  confirmAccount(id: string): Observable<boolean>{
+    return this.http.get<Response>(this.api + `users/confirm/${id}`).pipe(
+      map((response)=>{
+        if(response.status === 200){
+          return true;
+        }else{
+          return false;
+        }
+      })
+    )
   }
   verifEmail(email: string): Promise<boolean | string> {
     return new Promise((resolve, reject) => {
@@ -180,12 +177,24 @@ export class UserService {
   }
   getCurrentUser(): Observable<any> {
     if(this.currentUser$.value){
-      return this.currentUser$;
+      return of(this.currentUser$.value);
     }else{
       return this.http.get<Response>(this.api + "users/infos-user").pipe(
         tap((response: Response) =>{
           if(response.status === 200){
-            this.currentUser$.next(response.result);
+            const email = response.result.local.email
+            delete response.result.local
+            const user: User = {
+                email: email,
+                _id: response.result._id,
+                confirm: response.result.confirm,
+                adress: response.result.adress,
+                firstname: response.result.firstname,
+                name: response.result.name,
+                role: response.result.role,
+                commandes: response.result.commandes    
+            }
+            this.currentUser$.next(user);
           }else{
             this.currentUser$.next(null);
           }

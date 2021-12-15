@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 
@@ -43,7 +44,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -58,19 +60,19 @@ export class SignupComponent implements OnInit {
   }
   onSubmit(): void {
     if (this.signupForm.invalid) {
-      this.noValidForm = true;
+      this.alertService.makeSimpleAlert('Veuillez renseigner tous les champs svp', 'info', 2000)
       return;
     } else if (this.password.value !== this.confirm.value) {
-      this.noMatchedPassword = true;
+      this.alertService.makeSimpleAlert('Les mots de passe ne correspondent pas !', 'warning', 2000)
       return;
     } else {
-      this.noValidForm = false;
       const body = {
         name: this.name.value,
         firstname: this.firstname.value,
         email: this.email.value,
         adress: this.adress.value,
         password: this.password.value,
+        confirm: false
       };
       this.userService
         .verifEmail(body.email)
@@ -78,18 +80,17 @@ export class SignupComponent implements OnInit {
           this.userService
             .signup(body)
             .then((message: string) => {
-              this.messageSuccess = message;
+             this.alertService.makeSimpleAlert(message, "success", 1700).then((res: any)=>{
+              this.router.navigate(['/']);
+             })
             })
             .catch((message: string) => {
-              this.errorServer = message;
+              this.alertService.makeSimpleAlert(message, "error", 1700)
             });
           this.signupForm.reset();
-          setTimeout(() => {
-            this.router.navigate(['/']);
-          }, 1800);
         })
         .catch((message: string) => {
-          this.errorServer = message;
+          this.alertService.makeSimpleAlert(message, "error", 1700)
         });
     }
   }

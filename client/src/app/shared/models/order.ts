@@ -1,7 +1,8 @@
+import { User } from "./user";
 
 export class Order {
     detail: any[];
-    user: any;
+    user: User;
     numero: string;
     date: Date;
 }

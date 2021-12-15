@@ -3,13 +3,22 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const PRIVATE_KEY = fs.readFileSync('./rsa/key');
 const PUBLIC_KEY = fs.readFileSync('./rsa/key.pub');
-
+const { sendWelcomeEmail } = require('./contact.controllers')
+const { PORTHTTPS } = require(`../../env/${process.env.NODE_ENV}`)
 
 module.exports = {
     createUser: async (req, res, next)=>{
         try{
             const body = req.body;
-            const newUser = await Queries.saveNewUser(body);
+            const newUser = await Queries.saveNewUser(body, res);
+            sendWelcomeEmail(
+                {
+                    email: newUser.local.email, 
+                    name: newUser.name, 
+                    firstname: newUser.firstname, 
+                    link: `https://${req.hostname}:${PORTHTTPS}`+ `confirm?userId=${newUser.id}`
+                }
+                )
             res.json({
                 status:200,
                 message: "Votre Compte a été crée avec succes"
@@ -25,9 +34,7 @@ module.exports = {
         try{
             const email = req.body.email
             const logedUser = await Queries.getUserByEmail(email);
-            console.log(logedUser);
             const matchPassword = await logedUser.comparePassword(req.body.password);
-            console.log(matchPassword);
             if(!matchPassword){
                 res.json({
                     status: 401
@@ -42,9 +49,11 @@ module.exports = {
                         subject: logedUser._id.toString()
                     }
                 )
+                delete logedUser.local.password;
                 res.json({
                     status: 200,
-                    token: token
+                    token: token,
+                    user: logedUser
                 })
             }
         }catch(e){
@@ -82,7 +91,7 @@ module.exports = {
                 const id = req.user._id;
                 const infosUser = await Queries.getUserById(id);
                 delete infosUser.local.password;
-                console.log(infosUser);
+                console.log("rr",infosUser);
                return res.json({
                     status: 200,
                     result:infosUser
@@ -225,7 +234,8 @@ module.exports = {
                })
                res.json({
                    status: 200,
-                   token: newToken
+                   token: newToken,
+                   user: req.user
                })
            })
        }else{
@@ -234,5 +244,24 @@ module.exports = {
                verif: false
            })
        }
+    },
+    confirmAccount: async (req, res) =>{
+        try {
+            const id = req.params.id;
+            const user = await Queries.getUserById(id);
+            if(user){
+                user.confirm = true
+                await user.save()
+            }
+            res.json({
+                result: user,
+                status: 200
+            })
+        } catch (error) {
+            res.json({
+                result: error,
+                status: 400
+            })
+        }
     }
 }

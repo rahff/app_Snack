@@ -1,51 +1,32 @@
 const Queries = require('../../queries/app1/order.queries');
 const QueryUser = require('../../queries/app1/user.queries');
 module.exports = {
-    createOrder: (req, res, next)=>{
+    createOrder: async (req, res, next)=>{
+        try{
             const body = {
                 detail: req.body.detail,
                 adressLivraison: req.body.user.adress,
                 clientName: `${req.body.user.name + ' ' + req.body.user.firstname}`,
-                contactClient: req.body.user.local.email,
+                contactClient: req.body.user.email,
                 montant: req.body.montant,
                 numeroCommande: req.body.numero,
                 date: req.body.date
             }
-                Queries.saveOrder(body).then((order)=>{
-                const id = req.body.user._id
-                QueryUser.getUserById(id).then((user)=>{
-                    if(!user){
-                        res.json({
-                            status: 201,
-                            result: body.numeroCommande
-                        })
-                    }
+                const newOrder = await Queries.saveOrder(body)
+                const id = req.body.user._id;
                 const order = { detail: body.detail, montant: body.montant , numeroCommande: body.numeroCommande, date: body.date}
-                QueryUser.addCommandeOnUser(id, order).then((user)=>{
-                    res.json({
-                        status: 200,
-                        result: body.numeroCommande
-                    })
-                }).catch((err)=>{
-                    res.json({
-                        status: 500,
-                        message:`${err.message} + "echec de l'ajout de la commande dans user"`
-                    })
-                });
-                }).catch((err)=>{
-                    res.json({
-                        status: 500,
-                        message:`${err.message} + "user not found"`
-                    })
-                });
-            }).catch((err) =>{
+                const updateOnUser = await QueryUser.addCommandeOnUser(id, order);
+                const user = await QueryUser.getUserById(id);
                 res.json({
-                    status: 500,
-                    message: `${err.message} + "echec lors de la sauvegarde de la commande en db"`
-                })
-            });
-            
-       
+                    result: user,
+                    status: 200
+                })   
+        }catch(e){
+            res.json({
+                result: e,
+                status: 500
+            })  
+        }
     },
     getOrderList: async (req, res, next) =>{
         try{

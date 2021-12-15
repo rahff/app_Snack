@@ -36,9 +36,6 @@
           </div>
     </div>
     <button type="button" (click)="onSubmit()" class="btn btn success">Envoyer</button>
-    <p *ngIf="noValidForm" class="error">Veuillez remplir tous les champs svp</p>
-    <p *ngIf="messageResponse" class="success">Votre message à bien été envoyé</p>
-    <p *ngIf="messageError" class="danger">Une erreur est survenu :/</p>
   </form>
   <div class="spinner" *ngIf="isLoading">
     <mat-spinner class="load" diameter="250" color="accent"></mat-spinner>

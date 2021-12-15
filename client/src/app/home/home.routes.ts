@@ -7,7 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 
 export const HOME_ROUTES: Routes = [
     {
-        path: '', pathMatch: 'full', component: AccueilComponent 
+        path: '', component: AccueilComponent 
     },
     {
         path: 'contact', component: ContactComponent
