@@ -101,9 +101,8 @@
         font-size: 55px;
     }
     .invisible{
-        height: 50vh;
         width: 100%;
-        padding-top: 50px;
+        padding: 50px 0px;
     }
     p.success{
         text-align: center;

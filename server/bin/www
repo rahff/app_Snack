@@ -6,7 +6,7 @@ const env = require(`../env/${process.env.NODE_ENV}`)
 const fs = require('fs');
 
 http.createServer((req, res)=>{
-    res.writeHead(301, { location: `https://${env.client.split(":")[0]}` + ":" `${env.PORTHTTPS}${req.url}`});
+    res.writeHead(301, { location: `https://${env.client.split(":")[0]}` + ":" + `${env.PORTHTTPS}${req.url}`});
     res.end()
 }).listen(env.PORTHTTP);
 https.createServer({
