@@ -1,4 +1,4 @@
-<div class="mb-3">
+<div class="mb-3" *ngIf="!isLoading; else loader">
     <div class="container-fluid">
        <div routerLink="/profil" class="profil" *ngIf="isAuth">
         <i class="bi bi-file-person"></i> <span>{{ userName }}</span>
@@ -25,3 +25,6 @@
         <div routerLink='/page-menu/carte/4' class="description">Dessert/Boissons</div>
     </div>
 </div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

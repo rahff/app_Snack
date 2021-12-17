@@ -2,7 +2,7 @@
 <h1>Connectez-vous ou créer un compte avant de passer commande</h1>
 
 <div class="container flex-center"><button routerLink='/page-menu' class="btn success">Voir la carte</button></div>
-<div class="invisible">
+<div class="invisible" *ngIf="!loading;else loader">
     <form class="form-group" [formGroup]="loginForm">
         <div class="d-flex">
             <div class="flex-col">
@@ -32,3 +32,6 @@
         <p routerLink="/signup">Vous n'avez pas encore de compte ? Créer en un ici </p>
     </div>
 </div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

@@ -46,7 +46,7 @@ export class UserService {
         }
       })
   }
-  signup(body: User): Promise<string> {
+  signup(body: User): Promise<string | number> {
     return new Promise((resolve, reject) => {
       this.http.post(this.api + 'users/new', body).subscribe(
         (response: Response) => {
@@ -57,7 +57,7 @@ export class UserService {
             });
             resolve(response.message);
           } else {
-            reject(response.message);
+            reject(response.error);
           }
         },
         (err) => {

@@ -7,5 +7,6 @@ export interface Response {
   token?: string;
   message?: string;
   verif?: boolean; 
-  user?: any
+  user?: any;
+  error?: number;
 }

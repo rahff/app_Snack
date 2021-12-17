@@ -1,6 +1,5 @@
 <h1>Créer un Compte</h1>
-<p class="success" *ngIf="messageSuccess"> {{messageSuccess}}</p>
-<form class="form-group" [formGroup]="signupForm">
+<form class="form-group" [formGroup]="signupForm" *ngIf="!loading;else loader">
     <div class="d-flex">
         <div class="flex-col">
             <div class="container-fluid">
@@ -49,7 +48,8 @@
           </div>
     </div>
     <button (click)="onSubmit()" type="button" class="btn btn success">Valider</button>
-    <p *ngIf="noValidForm" class="error">Veuillez renseigner tous les champs svp</p>
-    <p *ngIf="noMatchedPassword" class="error">Les mots de passe ne correspondent pas</p>
-    <p *ngIf="errorServer" class="error">{{errorServer}} </p>
   </form>
+
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>

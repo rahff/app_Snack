@@ -16,7 +16,7 @@ module.exports = {
                     email: newUser.local.email, 
                     name: newUser.name, 
                     firstname: newUser.firstname, 
-                    link: `https://${req.hostname}:${PORTHTTPS}`+ `confirm?userId=${newUser.id}`
+                    link: `https://${req.hostname}:${PORTHTTPS}` + `confirm?userId=${newUser.id}`
                 }
                 )
             res.json({
@@ -24,10 +24,12 @@ module.exports = {
                 message: "Votre Compte a été crée avec succes"
             })
         }catch(e){
-            res.status(500).json({
-                message: "Un problème est survenu .. "
+            console.log(e);
+            res.json({
+                status: 500,
+                message: "Un problème est survenu .. ",
+                error: e.code
             })
-            next(e);
         }
     },
     login: async (req, res, next)=>{
@@ -61,8 +63,6 @@ module.exports = {
                 status: 404
             })
         }
-            
-        
     },
     verifEmail: async (req, res, next)=>{
        Queries.getUserByEmail(req.email)

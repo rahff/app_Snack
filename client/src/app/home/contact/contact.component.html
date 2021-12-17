@@ -1,6 +1,6 @@
 <h1>Nous Contacter</h1>
 
-<form class="form-group"[formGroup]="contactForm" *ngIf="!isLoading">
+<form class="form-group"[formGroup]="contactForm" *ngIf="!isLoading;else loader">
     <div class="d-flex">
         <div class="flex-col">
             <div class="container-fluid">
@@ -37,6 +37,6 @@
     </div>
     <button type="button" (click)="onSubmit()" class="btn btn success">Envoyer</button>
   </form>
-  <div class="spinner" *ngIf="isLoading">
-    <mat-spinner class="load" diameter="250" color="accent"></mat-spinner>
-  </div>
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>

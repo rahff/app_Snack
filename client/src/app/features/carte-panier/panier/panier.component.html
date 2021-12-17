@@ -28,7 +28,7 @@
 </div>
 </div>
 <div class="spinner" *ngIf="isLoading">
-  <mat-spinner class="load" diameter="250" color="accent"></mat-spinner>
+  <mat-spinner class="load" diameter="250" color="primary"></mat-spinner>
 </div>
 <div class="button-paypal">
   <app-paypal (loading)="onLoad($event)" [totalCommande]="(cart.total / 100)" *ngIf="cart.items.length"></app-paypal>

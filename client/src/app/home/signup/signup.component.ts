@@ -3,8 +3,6 @@ import {
   AbstractControl,
   FormBuilder,
   FormGroup,
-  ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -41,6 +39,7 @@ export class SignupComponent implements OnInit {
   public messageSuccess: string;
   public noValidForm = false;
   public noMatchedPassword = false;
+  public loading: boolean = false;
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -66,6 +65,7 @@ export class SignupComponent implements OnInit {
       this.alertService.makeSimpleAlert('Les mots de passe ne correspondent pas !', 'warning', 2000)
       return;
     } else {
+      this.loading = true;
       const body = {
         name: this.name.value,
         firstname: this.firstname.value,
@@ -80,17 +80,29 @@ export class SignupComponent implements OnInit {
           this.userService
             .signup(body)
             .then((message: string) => {
-             this.alertService.makeSimpleAlert(message, "success", 1700).then((res: any)=>{
+              this.loading = false;
+              this.alertService.makeSimpleAlert(message, "success", 1700).then((res: any)=>{
+              this.signupForm.reset();
               this.router.navigate(['/']);
              })
             })
-            .catch((message: string) => {
-              this.alertService.makeSimpleAlert(message, "error", 1700)
+            .catch((message: number) => {
+              if(message === 11000){
+                this.loading = false;
+                this.alertService.makeSimpleAlert("Cette email est déjà enregistré", "error", 1700);
+              }else{
+                this.alertService.makeSimpleAlert("Une erreur est survenue ...", "error", 1700);
+              }
             });
           this.signupForm.reset();
         })
-        .catch((message: string) => {
-          this.alertService.makeSimpleAlert(message, "error", 1700)
+        .catch((message: number) => {
+          if(message === 11000){
+            this.loading = false;
+            this.alertService.makeSimpleAlert("Cette email est déjà enregistré", "error", 1700);
+          }else{
+            this.alertService.makeSimpleAlert("Une erreur est survenue ...", "error", 1700);
+          }
         });
     }
   }

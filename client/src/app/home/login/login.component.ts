@@ -1,8 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { User } from 'src/app/shared/models/user';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -15,7 +13,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public localEmail: string;
-  private subcription: Subscription;
+  public loading: boolean = false;
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -38,6 +36,7 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(): void {
     if (this.loginForm.valid) {
+      this.loading = true;
       const body = {
         email: this.loginForm.get('email').value,
         password: this.loginForm.get('password').value,
@@ -46,16 +45,18 @@ export class LoginComponent implements OnInit {
         .login(body)
         .then((response: boolean) => {
           if (response) {
+            this.loading = false;
+            this.loginForm.reset();
             this.alertService.makeSimpleAlert('Bienvenue, vous êtes connecté', "success", 1800).then((res: any)=>{
               this.router.navigate(['/']);
             });
           }
         })
         .catch((message: string) => {
+          this.loading = false;
           this.alertService.makeSimpleAlert(message, "error", 1800)
           this.initForm();
         });
-      this.loginForm.reset();
     }
   }
 }

@@ -71,16 +71,15 @@ export class ContactComponent implements OnInit, OnDestroy {
       this.contactService.postMessage(body).then((res: boolean)=>{
         if(res){
           this.isLoading = false
-          this.alertService.makeSimpleAlert('Votre message à bien été envoyé', "success", 1500).then((res: any)=>{
+          this.alertService.makeSimpleAlert('Votre message à bien été envoyé', "success", 1800).then((res: any)=>{
+            this.contactForm.reset();
             this.router.navigate(['/']);
           })
         }
       }).catch((res: boolean)=>{
-        console.log(res);
         this.isLoading = false
         this.alertService.makeSimpleAlert('Une erreur est survenu :/', "error", 2000)
       })
-      this.contactForm.reset();
     }
   }
   ngOnDestroy(): void {

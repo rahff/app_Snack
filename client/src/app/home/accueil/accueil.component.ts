@@ -16,6 +16,7 @@ export class AccueilComponent implements OnInit, OnDestroy {
   public nbrOfItem: number;
   public isAuth = false;
   public userName: string
+  public isLoading: boolean = false;
   private subscription = new Subscription();
   constructor(
     private cartService: CartService,
@@ -28,10 +29,13 @@ export class AccueilComponent implements OnInit, OnDestroy {
     console.log(this.currentRoute.snapshot.queryParamMap.get("userId"));
     
     if(this.currentRoute.snapshot.queryParamMap.get("userId")){
+      this.isLoading = true;
       this.subscription.add(this.userService.confirmAccount(this.currentRoute.snapshot.queryParamMap.get("userId")).subscribe((response: boolean)=>{
         if(response){
+          this.isLoading = false;
           this.alertService.makeSimpleAlert('Votre compte est validé !', "success", 2000)
         }else{
+          this.isLoading = false;
           this.alertService.makeSimpleAlert('Une erreur c\'est produite ...', "error", 2000)
         }
       }))
