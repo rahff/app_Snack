@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1639780369385,
+  "timestamp": 1640471035564,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,22 +11,20 @@
         "ignoreVary": true
       },
       "urls": [
-        "/177.fc498a84a4d2a4b6.js",
-        "/336.9d2217e3402ed9f1.js",
-        "/411.54cd9f3b63f2eefd.js",
-        "/603.75b1c33b480b524f.js",
-        "/690.b14ff62328f4a4bb.js",
-        "/common.adcb78b0b8ed4b01.js",
+        "/common.js",
+        "/default-src_app_shared_services_alert_service_ts-src_app_shared_services_cart_service_ts.js",
         "/favicon.ico",
         "/index.html",
-        "/main.29a314903caf1628.js",
+        "/main.js",
         "/manifest.webmanifest",
-        "/ngsw-worker.js",
-        "/polyfills.2ac85cb8ef1de5dd.js",
-        "/runtime.fb61dbddc73fdfa4.js",
-        "/safety-worker.js",
-        "/styles.b61fac70afe1b10b.css",
-        "/worker-basic.min.js"
+        "/polyfills.js",
+        "/runtime.js",
+        "/src_app_features_admin_admin_module_ts.js",
+        "/src_app_features_carte-panier_carte-panier_module_ts.js",
+        "/src_app_features_user_user_module_ts.js",
+        "/src_app_home_home_module_ts.js",
+        "/styles.css",
+        "/vendor.js"
       ],
       "patterns": []
     },
@@ -66,18 +64,13 @@
         "/assets/tacos-viande-hache.png",
         "/assets/tacos.png",
         "/assets/tacos_home.png",
-        "/mur1.2ed0f9983cecbc25.jpg"
+        "/mur1.jpg"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/177.fc498a84a4d2a4b6.js": "8cecb6aa5d772d202b5bf6f063dec59fbae16654",
-    "/336.9d2217e3402ed9f1.js": "d54e1f3e2b59f492bd17d068d7bf4ebab329179c",
-    "/411.54cd9f3b63f2eefd.js": "f223480e6c80201a90da368e878ac161975c164a",
-    "/603.75b1c33b480b524f.js": "f445809aff50127495eef6075d9c355ad3189fef",
-    "/690.b14ff62328f4a4bb.js": "108fb507d20a12a7671a297313a9c3c8d36685d1",
     "/assets/Certification-Hygiène-Cuisine-1.jpg": "f410814eb04df87ca38882b900789cbdec94dfb3",
     "/assets/O-Kebab.png": "5aab58f07ffb72a7d7b2add0c6a863679620c90b",
     "/assets/Sundae.jpg": "730b68427cdb3441b81078bd07c3de1aba7b9c6f",
@@ -106,18 +99,21 @@
     "/assets/tacos-viande-hache.png": "5edf735b8fa6003a89e40b0320bd985618963220",
     "/assets/tacos.png": "28743076faaa9fa2d336e249d7003d58097f8bb9",
     "/assets/tacos_home.png": "1c1d33ab2e2b849bb11f5ee61c7e60faaf6cef8f",
-    "/common.adcb78b0b8ed4b01.js": "ab94bf48380ce54fc1cbb0891c996605c6b51e36",
+    "/common.js": "fd5bc401fcfb28ea78b591eb39d65b62323d8958",
+    "/default-src_app_shared_services_alert_service_ts-src_app_shared_services_cart_service_ts.js": "20baa7e88af9bb464d3b85e6b4f2341f84209a4b",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "70d79c1c21dcda635cce61b7761ab0ae56064af7",
-    "/main.29a314903caf1628.js": "cae7bb5ceab192093d8b627c54c84f11cb7b12db",
+    "/index.html": "acb866b14f5c0705ac3f7c562dba01f86e919dc7",
+    "/main.js": "c2b75e53e98b1ddae24ed017adcddbf7e1b9b9f7",
     "/manifest.webmanifest": "ce22f019686ab3ea2c2489db4f4f6def36de9cb1",
-    "/mur1.2ed0f9983cecbc25.jpg": "d3f7ae9e014f1884a95e82ce18202d08f6600612",
-    "/ngsw-worker.js": "40d0039a18343ecc1d310751f03cf8e563400422",
-    "/polyfills.2ac85cb8ef1de5dd.js": "5885bc1ac74f00d5e90749693d5d4650ad92f68c",
-    "/runtime.fb61dbddc73fdfa4.js": "942d4ed79743687a61639f7cb490de6dd28b58a0",
-    "/safety-worker.js": "70914dc203fa1f881e56f2b794d7a4f9c48ee745",
-    "/styles.b61fac70afe1b10b.css": "b8d588c334347bb3d7cb5b8cbe3024346afbe2d8",
-    "/worker-basic.min.js": "70914dc203fa1f881e56f2b794d7a4f9c48ee745"
+    "/mur1.jpg": "d3f7ae9e014f1884a95e82ce18202d08f6600612",
+    "/polyfills.js": "203ba53fc5415b12c39cb456d7b483065e979283",
+    "/runtime.js": "04d90b757491d14c1bee7379470b816b3d868985",
+    "/src_app_features_admin_admin_module_ts.js": "5cb1d0994bc24ffb69c06fb7ef0e00c582605fc2",
+    "/src_app_features_carte-panier_carte-panier_module_ts.js": "7274614c0b400e38a765141fba9ae026f64d3ef3",
+    "/src_app_features_user_user_module_ts.js": "50c025d95b7281d57e70b6d79477268122b83e2a",
+    "/src_app_home_home_module_ts.js": "a85ec13d1fb9dfe3663cc3cfcf99954f1a6c3b17",
+    "/styles.css": "757a85b06d0299e424ec6c11b973484817789714",
+    "/vendor.js": "a86e3c8576d60e429f4acacdf125c338448d6f7d"
   },
   "navigationUrls": [
     {
